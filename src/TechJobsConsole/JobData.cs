@@ -20,7 +20,57 @@ namespace TechJobsConsole
          * Returns a list of all values contained in a given column,
          * without duplicates. 
          */
-        public static List<string> FindAll(string column)
+
+        public static List<Dictionary<string, string>> FindByValue(string value)
+        {
+            // load data, if not already loaded
+            LoadData();
+
+            List<Dictionary<string, string>> jobs = new List<Dictionary<string, string>>();
+
+            foreach (Dictionary<string, string> row in AllJobs)
+            {
+
+                foreach (string key in row.Keys)
+                {
+                    string aValue = row[key];
+
+                    if (aValue.ToLower().Contains(value.ToLower()))
+                    {
+                        jobs.Add(row);
+
+                        // Finding one field in a job that matches is sufficient
+                        break;
+                    }
+                }
+            }
+            return jobs;
+        }
+            //public static List<Dictionary<string, string>> FindByValue(string searchTerm)
+            //{
+            //    LoadData();
+            //    // Create two Dictionary vars to hold info for menu and data
+
+            //    List<Dictionary<string, string>> jobs = new List<Dictionary<string, string>>();
+            ////    foreach (string job in columnChoices.Keys)
+            ////    {
+            //        foreach (Dictionary<string, string> row in AllJobs)
+            //        {
+            //                foreach (string key in row.Keys)
+            //{
+            //}
+            //            string aValue = row[column];
+
+            //            if (aValue.ToLower(Contains(searchTerm))
+            //            {
+            //                if (jobs.Contains(row))
+            //                jobs.Add(row);
+            //            }
+            //        }
+            //    }
+            //    return jobs;
+            //}
+            public static List<string> FindAll(string column)
         {
             LoadData();
 
