@@ -30,16 +30,18 @@ namespace TechJobsConsole
 
             foreach (Dictionary<string, string> row in AllJobs)
             {
-
+                //pulls key from dict
                 foreach (string key in row.Keys)
                 {
+                    //accesses value by indexing by key
                     string aValue = row[key];
 
-                    if (aValue.ToLower().Contains(value.ToLower()))
+                    //lowercase aValue to compare to the job listing
+                    if (aValue.ToLower().Contains(value.ToLower())) 
                     {
                         jobs.Add(row);
 
-                        // Finding one field in a job that matches is sufficient
+                        // Finds one field that matches and stops
                         break;
                     }
                 }

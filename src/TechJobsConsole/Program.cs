@@ -66,12 +66,14 @@ namespace TechJobsConsole
                         searchResults = JobData.FindByValue(searchTerm);
                         if (searchResults != null)
                         {
-                            Console.WriteLine(searchResults);
+                            PrintJobs(searchResults);
+                            //Console.ReadLine();
                         }
                         else
                         {
                             string noFindings = "No results matching the search term found :/";
                             Console.WriteLine(noFindings);
+                            //Console.ReadLine();
                         }
                     }
                     else
